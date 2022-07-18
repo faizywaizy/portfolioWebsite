@@ -6,7 +6,7 @@ import Home from './components/home/Home'
 // // import Projects from './components/projects/Projects'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
-// import TopButton from './components/topButton/TopButton'
+import TopButton from './components/topButton/TopButton'
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
       <Home />
       {/* <About />
       <Experience />
-
       <TopButton /> */}
+      <TopButton />
       <Contact />
       <Footer />
     </div>

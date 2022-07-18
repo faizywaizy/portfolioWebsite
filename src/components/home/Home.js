@@ -37,7 +37,7 @@ const Home = () => {
             <h1 className="greeting-text"> Thanks for looking me up!</h1>
             <br></br>
 
-            <h1 className="greeting-text">This website is still underconstruction</h1>
+            <h1 className="greeting-text">This website is still under construction</h1>
             
             <div className="scroll-down">
               <Link
