@@ -5,6 +5,7 @@ import { Link } from 'react-scroll'
 import { Fade } from 'react-reveal'
 import Section from '../section/Section'
 import Skills from '../skills/Skills'
+import SoftSkills from '../softskills/SoftSkills'
 
 const About = () => {
   return (
@@ -20,56 +21,58 @@ const About = () => {
               </span>{' '}
             </p>
             <p>
-              I'm a software developer with a passion for product management.
+              I'm a product manager with extensive development experience.
             </p>
             <p>
-              You can find me working with JavaScript, TypeScript, React, Vue,
+              You can find me working with on technical products built on React, Flutter, SQL, 
               and Node.
             </p>
             <div className="typewriter">
               <p className="typewriter-start">
-                I enjoy
+                I love
               </p>
               <Typewriter
                 options={{
                   strings: [
-                    'learning',
-                    'exercise',
-                    'solving problems',
-                    'fixing bugs',
-                    'meeting new people',
                     'good food',
-                    'fixing more bugs',
+                    'continuous learning',
+                    'bouldering',
+                    'solving real, customer problems',
+                    'meeting new people',
+                    'identifying customer needs',
+                    'fixing bugs',
                   ],
                   autoStart: true,
                   loop: true,
+                  deleteSpeed: 5,
                 }}
               />
               <p>.</p>
             </div>
             <p>
               I've always loved solving problems, which is why I
-              decided to start programming back in 2017. Since
-              then, I've created some{' '}
-              <Link
+              decided to start programming back in 2016. Since
+              then, I've created some
+              {' '}
+              {/* <Link
                 className="textLink"
                 to="projects"
                 spy={true}
                 smooth={true}
                 duration={500}
-              >
+              > */}
                 projects
-              </Link>
+              {/* </Link> */}
               , worked at some{' '}
-              <Link
+              {/* <Link
                 className="textLink"
                 to="experience"
                 spy={true}
                 smooth={true}
                 duration={500}
-              >
+              > */}
                 great places
-              </Link>
+              {/* </Link> */}
               , and met some great people.
             </p>
             <div className="location-wrapper">
@@ -92,6 +95,8 @@ const About = () => {
           </div>
         </Fade>
         <Skills />
+        <SoftSkills />
+
       </div>
     </Section>
   )

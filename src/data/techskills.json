@@ -1,0 +1,60 @@
+{
+  "techskills": [
+    {
+      "id": 0,
+      "skillName": "JavaScript",
+      "amount": "95"
+    },
+    {
+      "id": 1,
+      "skillName": "React.js",
+      "amount": "90"
+    },
+    { 
+      "id": 3, 
+      "skillName": "Python", 
+      "amount": "95" 
+    },
+
+    { 
+      "id": 3, 
+      "skillName": "Pandas", 
+      "amount": "90" 
+    },
+
+    { 
+      "id": 3, 
+      "skillName": "GA 360", 
+      "amount": "80" 
+    },
+
+    {
+      "id": 4,
+      "skillName": "GCP",
+      "amount": "85"
+    },
+    { 
+      "id": 6, 
+      "skillName": "MySQL", 
+      "amount": "85" 
+    },
+    {
+      "id": 8,
+      "skillName": "Jira",
+      "amount": "80"
+    },
+
+    {
+      "id": 9,
+      "skillName": "Git",
+      "amount": "75"
+    },
+
+    {
+      "id": 10,
+      "skillName": "Travis CI",
+      "amount": "65"
+    }
+
+  ]
+}

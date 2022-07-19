@@ -1,10 +1,11 @@
 import React, { useRef } from 'react'
+import './SoftSkills.css'
 import IsVisible from 'react-is-visible'
 import { Fade } from 'react-reveal'
-import { techskills } from '../../data/techskills.json'
+import { softskills } from '../../data/softskills.json'
 import { useContainerDimensions } from '../../hooks'
 
-const Skills = () => {
+const SoftSkills = () => {
   const skillsWrapper = useRef()
   const { width } = useContainerDimensions(skillsWrapper)
 
@@ -25,27 +26,28 @@ const Skills = () => {
                   : {}
               }
             >
-              <h2>Technical Skills</h2>
+              <h2>Soft Skills</h2>
               <ul className="skills" ref={skillsWrapper}>
-                {techskills.map((techskills) => {
+                {softskills.map((softskills) => {
                   return (
-                    <li className="skill-bar-wrapper" key={techskills.skillName}>
+                    <li className="skill-bar-wrapper" key={softskills.skillName}>
                       <div
                         className="skill-bar"
+                        id="tech-bar"
                         style={
                           isVisibleSkillsWrapper
                             ? {
                                 transition: `${
-                                  1 + techskills.id / 10
+                                  1 + softskills.id / 10
                                 }s width ease-in-out`,
-                                width: width * (techskills.amount / 100),
+                                width: width * (softskills.amount / 100),
                               }
                             : {
                                 width: 1,
                               }
                         }
                       ></div>
-                      <div className="skill-name">{techskills.skillName}</div>
+                      <div className="skill-name" id="tech">{softskills.skillName}</div>
                     </li>
                   )
                 })}
@@ -58,4 +60,4 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default SoftSkills

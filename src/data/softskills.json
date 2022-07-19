@@ -1,0 +1,51 @@
+{
+  "softskills": [
+    {
+      "id": 0,
+      "skillName": "Comms",
+      "amount": "95"
+    },
+
+    {
+      "id": 4,
+      "skillName": "Growth",
+      "amount": "95"
+    },
+
+    {
+      "id": 1,
+      "skillName": "Collab",
+      "amount": "90"
+    },
+    {
+      "id": 1,
+      "skillName": "Teachable",
+      "amount": "90"
+    },
+
+    { 
+      "id": 3, 
+      "skillName": "Detail", 
+      "amount": "80" 
+    },
+
+    { 
+      "id": 3, 
+      "skillName": "Listening", 
+      "amount": "80" 
+    },
+
+    {
+      "id": 4,
+      "skillName": "Leadership",
+      "amount": "75"
+    },
+
+    {
+      "id": 4,
+      "skillName": "Adaptable",
+      "amount": "70"
+    }
+
+  ]
+}
