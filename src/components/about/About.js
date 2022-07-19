@@ -24,7 +24,7 @@ const About = () => {
               I'm a product manager with extensive development experience.
             </p>
             <p>
-              You can find me working with on technical products built on React, Flutter, SQL, 
+              You can find me working on technical products built on React, Flutter, SQL, 
               and Node.
             </p>
             <div className="typewriter">
@@ -37,7 +37,7 @@ const About = () => {
                     'good food',
                     'continuous learning',
                     'bouldering',
-                    'solving real, customer problems',
+                    'solving customer problems',
                     'meeting new people',
                     'identifying customer needs',
                     'fixing bugs',
