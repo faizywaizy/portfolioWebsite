@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRef } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,13 +9,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
 import gmail from '../../images/social/gmail.png';
-
+import emailjs from '@emailjs/browser';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+
 export default function AlertDialogSlide() {
+
 
   const [open, setOpen] = React.useState(false);
 
@@ -26,12 +29,26 @@ export default function AlertDialogSlide() {
 
   const onMessageChange = (f) => setMessage(f.target.value);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  const handleClickOpen = () => {setOpen(true);};
+
+  const TEMPLATE_PARAMS = { 
+    to_name: email, 
+    message: message
+  }
+  
 
   const handleClose = () => {
-    console.log(email, message)
+    console.log(email, message);
+
+    emailjs.send('service_9n9w584', 'template_qf04mze', TEMPLATE_PARAMS, 'DIjZ8SKTRb3D9OsvX')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
+
+
+
     setOpen(false);
   };
 
