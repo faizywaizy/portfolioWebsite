@@ -7,12 +7,14 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
+import gmail from '../../images/social/gmail.png';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function AlertDialogSlide() {
+  
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -25,9 +27,11 @@ export default function AlertDialogSlide() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Slide in alert dialog
+      <Button 
+        onClick={handleClickOpen}>
+        <img src={gmail} alt="Gmail Logo" width="200px" />
       </Button>
+      
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -35,16 +39,33 @@ export default function AlertDialogSlide() {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle>{"Thanks for reaching out!"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="name"
+              label="Email Address"
+              type="email"
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="name"
+              label="Message"
+              type="message"
+              fullWidth
+              variant="standard"
+            />
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
+          <Button type="submit" onClick={handleClose}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>
