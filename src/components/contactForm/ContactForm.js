@@ -9,19 +9,29 @@ import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
 import gmail from '../../images/social/gmail.png';
 
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function AlertDialogSlide() {
-  
+
   const [open, setOpen] = React.useState(false);
+
+  const [email, setEmail] = React.useState("");
+
+  const [message, setMessage] = React.useState("");
+
+  const onEmailChange = (e) => setEmail(e.target.value);
+
+  const onMessageChange = (f) => setMessage(f.target.value);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
+    console.log(email, message)
     setOpen(false);
   };
 
@@ -51,6 +61,8 @@ export default function AlertDialogSlide() {
               type="email"
               fullWidth
               variant="standard"
+              onChange={onEmailChange}
+              value={email}
             />
             <TextField
               autoFocus
@@ -61,6 +73,8 @@ export default function AlertDialogSlide() {
               type="message"
               fullWidth
               variant="standard"
+              onChange={onMessageChange}
+              value={message}
             />
           </DialogContentText>
         </DialogContent>
