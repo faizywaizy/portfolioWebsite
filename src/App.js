@@ -7,15 +7,17 @@ import About from './components/about/About'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 import TopButton from './components/topButton/TopButton'
+import FeedbackButton from './components/feedbackButton/FeedbackButton'
 
 function App() {
   return (
     <div className="App">
+      <FeedbackButton />
       <Home />
       <About />
       {/* 
       <Experience />
-      <TopButton /> */}
+       */}
       <TopButton />
       <Contact />
       <Footer />

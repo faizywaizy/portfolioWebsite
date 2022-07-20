@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade'
 import { Link } from 'react-scroll'
 import Particles from 'react-particles-js'
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
-// import Navbar from '../navbar/Navbar'
+import Navbar from '../navbar/Navbar'
 import config from '../../config'
 import faizan from '../../images/faizan.jpg'
 
@@ -37,8 +37,6 @@ const Home = () => {
             <h1 className="greeting-text"> Thanks for looking me up!</h1>
             <br></br>
 
-            <h1 className="greeting-text">This website is still under construction</h1>
-            
             <div className="scroll-down">
               <Link
                 activeClass="active"
@@ -48,15 +46,16 @@ const Home = () => {
                 offset={-63}
                 duration={500}
               >
-                {/* <ArrowDropDownCircleIcon
+                <ArrowDropDownCircleIcon
                   fontSize="large"
                   style={{ pointerEvents: 'fill', cursor: 'pointer' }}
-                /> */}
+                />
               </Link>
             </div>
+
           </Fade>
         </div>
-        {/* <Navbar /> */}
+        <Navbar />
       </div>
     </div>
   )

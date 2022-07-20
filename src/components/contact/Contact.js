@@ -4,7 +4,6 @@ import Section from '../section/Section'
 import { Bounce } from 'react-reveal'
 import linkedin from '../../images/social/linkedin.png'
 import github from '../../images/social/github.png'
-import gmail from '../../images/social/gmail.png'
 import ContactForm from '../contactForm/ContactForm'
 
 const Contact = () => {
@@ -24,13 +23,13 @@ const Contact = () => {
           >
             <img src={github} alt="Github Logo" width="40px" />
           </a>
-          <a
+          {/* <a
             href="https://www.linkedin.com/in/faizywaizy/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src={linkedin} alt="Linkedin Logo" width="40px" />
-          </a>
+          </a> */}
 
         </div>
       </Bounce>

@@ -39,16 +39,6 @@ export default function AlertDialogSlide() {
 
   const handleClose = () => {
     console.log(email, message);
-
-    emailjs.send('service_9n9w584', 'template_qf04mze', TEMPLATE_PARAMS, 'DIjZ8SKTRb3D9OsvX')
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
-
-
-
     setOpen(false);
   };
 

@@ -32,7 +32,7 @@ const MobileNav = ({ toggleMobilenavVisible, mobilenavVisible }) => {
               ABOUT
             </Link>
           </div>
-          <div className="mobilenavlink">
+          {/* <div className="mobilenavlink">
             <Link
               activeClass="active"
               to="experience"
@@ -43,7 +43,7 @@ const MobileNav = ({ toggleMobilenavVisible, mobilenavVisible }) => {
             >
               EXPERIENCE
             </Link>
-          </div>
+          </div> */}
           {/* <div className="mobilenavlink">
             <Link
               activeClass="active"
