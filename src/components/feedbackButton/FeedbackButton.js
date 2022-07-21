@@ -13,9 +13,16 @@ import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
+import '../alertSuccess/AlertSuccess'
+
+import {db} from './firebase'
+import {collection, addDoc, Timestamp} from 'firebase/firestore'
+import AlertSuccess from '../alertSuccess/AlertSuccess';
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
+
 
 const labels = {
   1: 'Sucked',
@@ -43,13 +50,27 @@ const FeedbackButton = () => {
 
   const handleClickOpen = () => {setOpen(true);};
 
-  const TEMPLATE_PARAMS = { 
-    feedbackValue: value, 
-    message: message
+  const handleSubmit = async (e) => {
+    if (e === ''){
+      setOpen(false);
+    } else {
+      try {
+        await addDoc(collection(db, 'feedback'), {
+          feedback: message,
+          rating: value,
+          submitted: Timestamp.now()
+        })
+        
+      } catch (err) {
+        alert(err)
+      }
+    }
+
   }
 
   const handleClose = () => {
-    console.log(value, message);
+    handleSubmit(message)
+
     setOpen(false);
   };
 
