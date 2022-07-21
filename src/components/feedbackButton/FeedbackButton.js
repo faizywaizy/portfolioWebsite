@@ -13,16 +13,21 @@ import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
-import '../alertSuccess/AlertSuccess'
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+
 
 import {db} from './firebase'
 import {collection, addDoc, Timestamp} from 'firebase/firestore'
-import AlertSuccess from '../alertSuccess/AlertSuccess';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
+  return <Slide direction="" ref={ref} {...props} />;
 });
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const labels = {
   1: 'Sucked',
@@ -46,7 +51,11 @@ const FeedbackButton = () => {
 
   const [message, setMessage] = React.useState("");
 
+  const [email, setEmail] = React.useState("");
+
   const onMessageChange = (f) => setMessage(f.target.value);
+
+  const onEmailChange = (e) => setEmail(e.target.value);
 
   const handleClickOpen = () => {setOpen(true);};
 
@@ -56,6 +65,7 @@ const FeedbackButton = () => {
     } else {
       try {
         await addDoc(collection(db, 'feedback'), {
+          email: email,
           feedback: message,
           rating: value,
           submitted: Timestamp.now()
@@ -69,9 +79,27 @@ const FeedbackButton = () => {
   }
 
   const handleClose = () => {
-    handleSubmit(message)
+    //submit message
+    handleSubmit(message);
 
+    // close dialog box
     setOpen(false);
+
+    //open alert success
+    setAlertOpen(true);
+
+  };
+
+  // for the alert bar 
+
+  const [alertOpen, setAlertOpen] = React.useState(false);
+
+  const handleAlertOpen = () => {
+    setAlertOpen(true);
+  };
+
+  const handleAlertClose = () => {
+    setAlertOpen(false);
   };
 
   return (
@@ -110,22 +138,48 @@ const FeedbackButton = () => {
         <DialogContentText id="alert-dialog-slide-description">
           <TextField
             autoFocus
-            required
+            optional
             margin="dense"
             id="name"
+            label="Email"
+            type="email"
+            fullWidth
+            variant="standard"
+            onChange={onEmailChange}
+            value={email}
+            helperText="Only submit if you're comfortable with me reaching out for more details!"
+          />
+        </DialogContentText>
+
+        <DialogContentText id="alert-dialog-slide-description">
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="outlined-required"
             label="Feedback"
-            type="feedback"
             fullWidth
             variant="standard"
             onChange={onMessageChange}
             value={message}
+            autoComplete="off"
           />
         </DialogContentText>
+
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Submit</Button>
+        <Button 
+          onClick={handleClose}>Submit
+          </Button>
       </DialogActions>
     </Dialog>
+
+    <Snackbar open={alertOpen} autoHideDuration={4000} onClose={handleAlertClose}>
+      <Alert onClose={handleAlertClose} severity="success" sx={{ width: '100%' }}>
+        Your feedback directly improves this website's experience.
+      </Alert>
+    </Snackbar>
+
   </div>
   )
 }
